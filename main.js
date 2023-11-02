@@ -290,13 +290,13 @@ for (i=alea;i>=10;i--){
 
 /*------------  DEBUT DU CODE DE L'EXERCICE  ------------------------------------------------------------*/
 
-tab_alea = []
+let tab_alea = []
 
 
-numTabAlea = aleatoire(5,10)
+let numTabAlea = aleatoire(5,10)
 
 for(i=0; i<= numTabAlea;i++){
-    numAlea = aleatoire(0,100)
+    let numAlea = aleatoire(0,100)
     tab_alea.push(numAlea);
 }
 
@@ -320,34 +320,41 @@ afficher (tab_alea)
 
 /*------------  DEBUT DU CODE DE L'EXERCICE  ------------------------------------------------------------*/
 
-
-tabAleaUn = []
-tabAleaDeux = []
-tabAleaTrois = []
-numTabAlea = aleatoire(5,10)
+let tableau_alea = []
+let tableau_alea_deux = []
+let tableaux = []
 
 for(i=0; i<= numTabAlea;i++){
-    numAlea = aleatoire(0,100);
-    tabAleaUn.push(numAlea);
+    let num_Alea = aleatoire(0,100);
+    let num_Alea_Deux = aleatoire(0,100);
+    tableau_alea.push(num_Alea);
+    tableau_alea_deux.push(num_Alea_Deux);
 }
 
-for(i=0; i<= numTabAlea;i++){
-    numAlea = aleatoire(0,100);
-    tabAleaDeux.push(numAlea);
+for (i=0;i < taille(tableau_alea);i++){
+    tableaux.push(tableau_alea[i]);
 }
 
-for (i=0;taille(tabAleaUn);i++){
-    index = tabAleaUn[i];
-    tabAleaTrois.push(index);
+for (i=0;i<taille(tableau_alea_deux);i++){
+    tableaux.push(tableau_alea_deux[i]);
 }
 
-for (i=0;taille(tabAleaDeux);i++){
-    indexDeux = tabAleaDeux[i];
-    tabAleaTrois.push(indexDeux);
+/* J'ai réussi ici à avoir toutes mes valeurs dans un seul et même tableau. Mtn je dois trouver comment les transformer en chaine de carac. */
+
+let tableauxString = tableaux.toString();
+
+/* Cela permet d'avoir toutes mes valeurs de mon tableaux en "string" d'ou le toString sans avoir à modifié le premier. */
+let score = 0
+
+for (i=0;i<taille(tableaux);i++){
+    score = score + tableaux[i]
 }
 
-afficher(tabAleaTrois)
-
+/* Reponse finale : */
+afficher (tableau_alea)
+afficher (tableau_alea_deux)
+afficher (tableauxString)
+afficher (score)
 
 /* J'EN SUIS A MTN */
 
@@ -379,6 +386,12 @@ message=[".-..","."," ","--","---",".-.","...","."," ",".","...","-"," ","..-","
 /*------------  DEBUT DU CODE DE L'EXERCICE  ------------------------------------------------------------*/
 
 
+for (i=0;i<taille(message);i++){
+    for (j=0;j<taille(message);j++){
+        if (message[i] == equivalentMorse[j]){
+            afficher (equivalentAlphabet[j])
+        }
+}   }
 
 /*------------  FIN DU CODE DE L'EXERCICE  --------------------------------------------------------------*/
 
@@ -399,8 +412,20 @@ invasion=[[321,340,982,906,343,621,110,483,374,974],[785,751,139,215,139,536,604
 
 /*------------  DEBUT DU CODE DE L'EXERCICE  ------------------------------------------------------------*/
 
+let new_invasion = []
 
+for (i=0;i<taille(invasion);i++){
+    for (j=0;j<taille(invasion[j]);j++){
+        if (500 <= j || j <= 700){
+            new_invasion.push("&#11035;");
+        }
+        else {
+            new_invasion.push("<span style='opacity:.15;'>&#11036;</span>");
+        }
+    }
+}
 
+afficher(new_invasion)
 
 
 /*------------  FIN DU CODE DE L'EXERCICE  --------------------------------------------------------------*/
