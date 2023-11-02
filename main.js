@@ -389,9 +389,23 @@ message=[".-..","."," ","--","---",".-.","...","."," ",".","...","-"," ","..-","
 for (i=0;i<taille(message);i++){
     for (j=0;j<taille(message);j++){
         if (message[i] == equivalentMorse[j]){
-            afficher (equivalentAlphabet[j])
+            afficher (equivalentAlphabet[j]);
         }
 }   }
+
+text = ["B","O","N","J","O","U","R"];
+
+function codeMorse(param) {
+    for (i=0;i<taille(param);i++){
+        for (j=0;j<taille(equivalentAlphabet);j++){
+            if (param[i]== equivalentAlphabet[j]){
+                afficher (equivalentMorse[j]);
+            }
+    }   }    
+}
+
+codeMorse(text)
+
 
 /*------------  FIN DU CODE DE L'EXERCICE  --------------------------------------------------------------*/
 
@@ -415,18 +429,24 @@ invasion=[[321,340,982,906,343,621,110,483,374,974],[785,751,139,215,139,536,604
 let new_invasion = []
 
 for (i=0;i<taille(invasion);i++){
-    for (j=0;j<taille(invasion[j]);j++){
-        if (500 <= j || j <= 700){
+    for (j=0;j<taille(invasion[i]);j++){
+        if (invasion[i][j] <= 700 && invasion[i][j] >= 500) {
             new_invasion.push("&#11035;");
         }
         else {
             new_invasion.push("<span style='opacity:.15;'>&#11036;</span>");
         }
-    }
+    }  
 }
 
 afficher(new_invasion)
 
+
+/* for (i=0;i<taille(tab_deux);i++){
+   for (j=0;j<taille(tab_deux[i]);j++){
+       afficher(tab_deux[i][j]);
+   }
+}/*
 
 /*------------  FIN DU CODE DE L'EXERCICE  --------------------------------------------------------------*/
 
@@ -450,4 +470,40 @@ afficher(new_invasion)
 //  	- les nombres hexadécimaux (en base 16) sont composés des chiffres suivant : 0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F
 //  	- les nombres en base N sont composés des chiffres 0 à (N-1)
 /*------------  DEBUT DU CODE DE L'EXERCICE  ------------------------------------------------------------*/
+
+let number_DecToBin = lire("Veuillez rentrer le nombre décimal à mettre en binaire")
+
+function decimalToBinaire(number) {
+    let accumulation = "";
+    let div;
+    let modulo;
+    afficher("Voici le nombre décimal pour le nombre binaire ",number)
+    while (div != 0 ) {
+        div = Math.floor(number/2);
+        modulo = number % 2;
+        number = div ;
+        accumulation = modulo.toString() + accumulation;
+        afficher(accumulation);
+    }
+}
+
+
+decimalToBinaire(number_DecToBin);
+
+
+let number_BinToDec = lire("Veuillez rentrer le nombre binaire à mettre en décimal")
+
+function binaireToDecimal(number) {
+    let result = 0;
+    let longeur = taille(number);
+
+    afficher ("Voici le nombre binaire pour le nombre décimal ", number_BinToDec)
+    for (i=0;i<= longeur;i++){
+        result = Math.pow()
+        }
+        afficher(result)
+    }
+
+binaireToDecimal(101010);
 /*------------  FIN DU CODE DE L'EXERCICE  --------------------------------------------------------------*/
+
