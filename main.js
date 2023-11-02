@@ -504,6 +504,26 @@ function binaireToDecimal(number) {
         afficher(result)
     }
 
+
+function binaireToDecimal(nombre) {
+    // Initialise le résultat de la conversion
+    let decimal = 0;
+    // Convertit le nombre entier en chaîne de caractères
+    let chaine = nombre.toString();
+    // Parcourt la chaîne de caractères de droite à gauche
+    for (let i = 0; i < chaine.length; i++) {
+      // Convertit le chiffre courant en nombre
+      let chiffre = parseInt(chaine[chaine.length - 1 - i], base);
+      // Calcule la puissance de la base correspondant à la position du chiffre
+      let puissance = Math.pow(2, i);
+      // Ajoute le produit du chiffre et de la puissance au résultat
+      decimal += chiffre * puissance;
+    }
+    // Retourne le résultat
+    return decimal;
+  }
+
+//  A MODFIIER
 binaireToDecimal(101010);
 /*------------  FIN DU CODE DE L'EXERCICE  --------------------------------------------------------------*/
 
