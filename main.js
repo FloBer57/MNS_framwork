@@ -406,6 +406,35 @@ function codeMorse(param) {
 
 codeMorse(text)
 
+// Test du BONUS
+
+afficher("BONUS MORSE")
+
+let choix;
+
+while (true) {
+    choix = lire("Veuillez taper 1 si vous souhaitez déchiffrer, et 2 si vous souhaitez chiffrer : ");
+    if (choix === "1" || choix === "2") {
+        break;
+    } else {
+        afficher("Veuillez choisir 1 ou 2.");
+    }
+}
+afficher(choix)
+
+if (choix == 1) {
+    let code = lire("Veuillez rentrer le texte à déchiffrer.");
+    for (i=0;i<taille(code);i++){
+        for (j=0;j<taille(message);j++){
+            if (message[i] == equivalentMorse[j]){
+                afficher (equivalentAlphabet[j]);
+            }
+    }   }
+}
+if (choix == 2) {
+    let code = lire("Veuillez rentrer le texte chiffrer. ");
+    codeMorse(code);
+}
 
 /*------------  FIN DU CODE DE L'EXERCICE  --------------------------------------------------------------*/
 
@@ -471,8 +500,11 @@ afficher(new_invasion)
 //  	- les nombres en base N sont composés des chiffres 0 à (N-1)
 /*------------  DEBUT DU CODE DE L'EXERCICE  ------------------------------------------------------------*/
 
-let number_DecToBin = lire("Veuillez rentrer le nombre décimal à mettre en binaire")
 
+// DECIMAL EN BINAIRE
+
+let number_DecToBin = lire("Veuillez rentrer le nombre décimal à mettre en binaire")
+afficher ("Fonction pour convertir un nombre DECIMAL en BINAIRE")
 function decimalToBinaire(number) {
     let accumulation = "";
     let div;
@@ -485,45 +517,36 @@ function decimalToBinaire(number) {
         accumulation = modulo.toString() + accumulation;
         afficher(accumulation);
     }
+    afficher ("Le résultat en BINAIRE pour le décimal ",number," est ", accumulation)
 }
-
 
 decimalToBinaire(number_DecToBin);
 
 
+// BINAIRE EN DECIMAL 
 let number_BinToDec = lire("Veuillez rentrer le nombre binaire à mettre en décimal")
-
+afficher ("Fonction pour convertir un nombre BINAIRE en DECIMAL")
 function binaireToDecimal(number) {
     let result = 0;
-    let longeur = taille(number);
+    afficher("Nombre binaire entré : " + number);
+    number = number.toString().split('').reverse().join('');
 
-    afficher ("Voici le nombre binaire pour le nombre décimal ", number_BinToDec)
-    for (i=0;i<= longeur;i++){
-        result = Math.pow()
+    for (let i = 0; i < taille(number); i++) {
+        if (number[i] === '1') {
+            result = result + Math.pow(2, i);
+            afficher (result);
         }
-        afficher(result)
     }
+    afficher ("Le résultat en DECIMAL pour le binaire ", number, " est ", result)
+}
+
+binaireToDecimal(number_BinToDec);
 
 
-function binaireToDecimal(nombre) {
-    // Initialise le résultat de la conversion
-    let decimal = 0;
-    // Convertit le nombre entier en chaîne de caractères
-    let chaine = nombre.toString();
-    // Parcourt la chaîne de caractères de droite à gauche
-    for (let i = 0; i < chaine.length; i++) {
-      // Convertit le chiffre courant en nombre
-      let chiffre = parseInt(chaine[chaine.length - 1 - i], base);
-      // Calcule la puissance de la base correspondant à la position du chiffre
-      let puissance = Math.pow(2, i);
-      // Ajoute le produit du chiffre et de la puissance au résultat
-      decimal += chiffre * puissance;
-    }
-    // Retourne le résultat
-    return decimal;
-  }
+
+
 
 //  A MODFIIER
-binaireToDecimal(101010);
+
 /*------------  FIN DU CODE DE L'EXERCICE  --------------------------------------------------------------*/
 
